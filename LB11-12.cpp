@@ -21,4 +21,10 @@ int main() {
 	b.operator-();
 	b.operator--();
 	system("PAUSE");
+
+	queue <Date> C(3);
+	C.operator--();
+	C + Date(1, 2, 3);
+	C + Date (25, 20, 30);
+	C.operator-();
 }

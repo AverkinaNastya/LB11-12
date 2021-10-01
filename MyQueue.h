@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Date.h"
 
 using namespace std;
 
@@ -42,10 +43,6 @@ public:
 	}
 	void operator -() {
 		if (N != 0) {
-			for (int i = 0; i < N; i++) {
-				data[i] = data[i + 1];
-			}
-			data[N - 1] = NULL;
 			N--;
 			cout << "\nЁлемент удален из очереди" << endl;
 		}
@@ -57,6 +54,7 @@ public:
 	void operator --() {
 		if (N == 0) {
 			cout << "\nќчередь пуста€" << endl;
+			Show();
 		}
 		else {
 			cout << "\nќчередь не пуста€" << endl;
