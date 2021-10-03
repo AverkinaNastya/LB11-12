@@ -1,39 +1,39 @@
-#include <iostream>
+#include <iostream>								//подключение заголовочного файла iostream, для вывода информации на экран
 
-using namespace std;
-class Date
+using namespace std;							//использование пространство имён std
+class Date										//объявление класса Date (время)
 {
 public:
-	Date();
-	Date(int a, int b, int c);
-	~Date();
-	int Hour;
-	int Min;
-	int Sek;
+	Date();										//конструктор Date без аргументов
+	Date(int a, int b, int c);					//конструктор Date с аргументами a,b,c
+	~Date();									//деконстр Date
+	int Hour;									//парметр Hour - кол-во часов
+	int Min;									//параметр Min - кол-во минут
+	int Sek;									//параметр Sek - кол-во секунд
 };
 
-Date::Date() {
-	Hour = 0;
-	Min = 0;
-	Sek = 0;
+Date::Date() {									//конструктор Date без аргументов
+	Hour = 0;									//кол-во часов равно 0
+	Min = 0;									//кол-во минут равно 0
+	Sek = 0;									//кол-во секунд равно 0
 }
 
-Date::Date(int a, int b, int c)
+Date::Date(int a, int b, int c)					//конструктор Date с аргументами a,b,c
 {
-	if ((a < 0 || a>24) || (b < 0 || b > 60) || (c < 0 || c>60))
+	if ((a < 0 || a>24) || (b < 0 || b > 60) || (c < 0 || c>60)) //если значения выходят за границы возможных
 	{
-		cout << "Time Disebled!!!\nAND NEW TIME ZERO!!!" << endl;
-		a = b = c = 0;
+		cout << "Time Disebled!!!\nAND NEW TIME ZERO!!!" << endl; //вывод сообщения об ошибке и установке времени на 0
+		a = b = c = 0;							//присвает к парметрам кол-ва часов, минут и секунд 0
 	}
-	Hour = a;
-	Min = b;
-	Sek = c;
+	Hour = a;									//присваиваем кол-ву часов переданное значение a
+	Min = b;									//присваиваем кол-ву минут переданное значение b
+	Sek = c;									//присваиваем кол-ву секунд переданное значение c
 }
-Date::~Date()
-{
-
-}
-ostream& operator <<(ostream& out, Date& a) {
-	out << "{" << a.Hour << "." << a.Min << "." << a.Sek << "}";
-	return out;
+Date::~Date()									//деконстр Date
+{												//
+	cout << "Элемент выгружен" << endl;			//
+}												//
+ostream& operator <<(ostream& out, Date& a) {	//перегрузка оператора вывода <<
+	out << "{" << a.Hour << "." << a.Min << "." << a.Sek << "}"; //выводим время в формате {часы,минуты,секунды}
+	return out;									//возвращаем out
 }
